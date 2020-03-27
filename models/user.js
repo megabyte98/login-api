@@ -28,6 +28,10 @@ const userSchema = schema({
         required : true,
         minlength : 8
     },
+    isAdmin : {
+        type : Boolean,
+        default : false
+    },
     tokens :[{
         token:{
             type:String,
