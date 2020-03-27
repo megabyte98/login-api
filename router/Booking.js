@@ -6,7 +6,11 @@ const auth = require('../middleware/auth');
 const booking = require("../models/booking");
 
 router.post("/booking/me",auth,async(req,res)=>{
-    const Booking = new booking(req.body);
+    const Booking= new booking({
+        ...req.body,
+        BookedBy: req.user._id
+    })
+
     try{
          await Booking.save();
          res.status(201).send(Booking)
@@ -15,6 +19,15 @@ router.post("/booking/me",auth,async(req,res)=>{
     catch(e){
         console.log('error',e)
         res.status(400).send();
+    }
+})
+
+router.get('/booking/me', auth, async (req, res) => {
+    try {
+        await req.user.populate('bookings').execPopulate()
+        res.send(req.user.bookingss)
+    } catch (e) {
+        res.status(500).send()
     }
 })
 

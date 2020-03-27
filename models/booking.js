@@ -20,10 +20,12 @@ const bookingSchema = schema({
     BookedBy :[{
 
         type: mongoose.Schema.Types.ObjectId,
+        required : true,
         ref: "user"
     }  ] ,
     hallBooked :[{
               type :mongoose.Schema.Types.ObjectId,
+              required : true,
               ref : "hall"
     }]
     
