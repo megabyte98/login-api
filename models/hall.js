@@ -12,7 +12,7 @@ const hallSchema = schema({
  },
  Count :{
     type : Number,
-    required : true
+    // required : true
  } 
 })
 
