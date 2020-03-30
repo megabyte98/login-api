@@ -13,16 +13,16 @@ const bookingSchema = schema({
         required: true,
         default: Date.now 
        },
-    BookedFor :{
+    BookedFor :[{
         type : String,
         required : true
-    },
-    BookedBy :[{
+    }],
+    BookedBy :{
 
         type: mongoose.Schema.Types.ObjectId,
         required : true,
         ref: "user"
-    }  ] ,
+    }   ,
     hallBooked :[{
               type :mongoose.Schema.Types.ObjectId,
               required : true,

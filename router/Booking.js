@@ -25,7 +25,7 @@ router.post("/booking/me",auth,async(req,res)=>{
 router.get('/booking/me', auth, async (req, res) => {
     try {
         await req.user.populate('bookings').execPopulate()
-        res.send(req.user.bookingss)
+        res.send(req.user.bookings)
     } catch (e) {
         res.status(500).send()
     }

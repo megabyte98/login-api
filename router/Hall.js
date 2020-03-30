@@ -3,6 +3,8 @@ const router = express.Router();
 const hall= require('../models/hall');
 const auth = require('../middleware/auth');
 
+//post route only for admin user cannot access it
+
 router.post("/hall/me",auth,async(req,res)=>{
     const newHall = new hall(req.body)
     try{
@@ -24,5 +26,9 @@ try {
     res.status(400).send();
 }
 })
+
+
+
+
 
 module.exports = router;
